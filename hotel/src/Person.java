@@ -56,11 +56,11 @@ public abstract class Person {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public void personInfoPrint(Person p){
-        System.out.println("Name: " + p.getName());
-        System.out.println("Age: " + p.getAge());
-        System.out.println("ID: " + p.getID());
-        System.out.println("Gender: " + p.getGender());
+    public void personInfoPrint(){
+        System.out.println("Name: " + getName());
+        System.out.println("Age: " + getAge());
+        System.out.println("ID: " + getID());
+        System.out.println("Gender: " + getGender());
     }
 
 }

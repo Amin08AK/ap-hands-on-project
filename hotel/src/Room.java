@@ -58,8 +58,9 @@ public class Room {
         System.out.println("Price Per Night : " + getPrice());
         String print = isEmpty()==true ? "This Room is Empty" : "This room is reserved";
         System.out.println(print);
-        System.out.println("Guest Index reserved this room: "+getGuestReservedThisRoomIndex());
-
+        if(!isEmpty()) {
+            System.out.println("Guest Index reserved this room: " + getGuestReservedThisRoomIndex());
+        }
     }
 
 }

@@ -19,13 +19,13 @@ public class Personnel extends Person {
     }
 
 
-    public void PersonInfoPrint(Personnel p){
-        System.out.println("Name: " + p.getName());
-        System.out.println("Age: " + p.getAge());
-        System.out.println("ID: " + p.getID());
-        System.out.println("Gender: " + p.getGender());
-        System.out.println("Job: " + p.getJob());
-        System.out.println("Responsibilities: " + p.getResponsibilities());
+    public void personInfoPrint(){
+        System.out.println("Name: " + getName());
+        System.out.println("Age: " + getAge());
+        System.out.println("ID: " + getID());
+        System.out.println("Gender: " + getGender());
+        System.out.println("Job: " + getJob());
+        System.out.println("Responsibilities: " + getResponsibilities());
     }
 
 }

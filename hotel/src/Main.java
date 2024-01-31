@@ -102,7 +102,7 @@ public class Main {
                                         }
                                         break outer;
                                     case 4: //printGuestInfo
-                                        guest[guestWhoLogin].personInfoPrint(guest[guestWhoLogin]);
+                                        guest[guestWhoLogin].personInfoPrint();
                                         System.out.println("Press Enter to continue...");
                                         sc.nextLine();
                                         sc.nextLine();
@@ -121,7 +121,7 @@ public class Main {
                             int personnelMenu = sc.nextInt();
                             switch (personnelMenu){
                                 case 1:
-                                    personnel[personnelWhoLogIn].personInfoPrint(personnel[personnelWhoLogIn]);
+                                    personnel[personnelWhoLogIn].personInfoPrint();
                                     System.out.println("Press Enter to continue...");
                                     sc.nextLine();
                                     sc.nextLine();
@@ -146,7 +146,7 @@ public class Main {
                             case 1://register Personnel
                                 personnel[personnelCounter] = inputSingUpInfoForPersonnel();
                                 for (int i = 0; i < personnelCounter; i++) {
-                                    while (personnel[personnelCounter].getID().equals(guest[i].getID())) {
+                                    while (personnel[personnelCounter].getID().equals(personnel[i].getID())) {
                                         System.out.print(ConsoleColor.RED + "ERROR!\nThis Id is taken! Tyr another one: " + ConsoleColor.YELLOW_BRIGHT);
                                         personnel[personnelCounter].setID(sc.next());
                                     }
@@ -334,18 +334,32 @@ public class Main {
                                 break outer;
                             case 9: //list of guests
                                 for (int i = 0; i < guestCounter; i++) {
-                                    guest[i].personInfoPrint(guest[i]);
+                                    if(guest[i].getIsBaned()){
+                                        System.out.println(ConsoleColor.RED+"This User is banned"+ConsoleColor.YELLOW_BRIGHT);
+                                        break outer;
+                                    }
+                                    guest[i].personInfoPrint();
+                                    System.out.println("---------------------");
                                 }
                                 break outer;
                             case 10: //List of personnel
                                 for (int i = 0; i < personnelCounter; i++) {
-                                    personnel[i].PersonInfoPrint(personnel[i]);
+                                    if(personnel[i].getIsBaned()){
+                                        System.out.println(ConsoleColor.RED+"This User is banned"+ConsoleColor.YELLOW_BRIGHT);
+                                        break outer;
+                                    }
+                                    personnel[i].personInfoPrint();
+                                    System.out.println("---------------------");
+
                                 }
                                 break outer;
                             case 11: //list of rooms
                                 for (int i = 0; i < roomCounter; i++) {
+                                    if(!room[i].isAvailable()){
+                                        System.out.println(ConsoleColor.RED+"This Room is Deleted!"+ConsoleColor.YELLOW_BRIGHT);
+                                    }
                                     room[i].roomInfo();
-
+                                    System.out.println("---------------------");
                                 }
                                 break outer;
                         }
@@ -359,7 +373,7 @@ public class Main {
                             guest[guestCounter].setID(sc.next());
                         }
                     }
-                    guest[guestCounter].personInfoPrint(guest[guestCounter]);
+                    guest[guestCounter].personInfoPrint();
                     guestCounter++;
                     break;
                 default:
@@ -423,7 +437,7 @@ public class Main {
         }
 
         System.out.println("User Successfully Registered!");
-        person.personInfoPrint(person);
+        person.personInfoPrint();
         System.out.print(ConsoleColor.BLUE_BOLD + "Confirm the Information (Y/N)? : " + ConsoleColor.BLUE);
         String check = sc.next();
         while (!check.equalsIgnoreCase("Y") && !check.equalsIgnoreCase("n")) {
@@ -485,7 +499,7 @@ public class Main {
             checkPassword = sc.next();
         }
         System.out.println("User Successfully Registered!");
-        person.PersonInfoPrint(person);
+        person.personInfoPrint();
         System.out.print(ConsoleColor.BLUE_BOLD + "Confirm the Information (Y/N)? : " + ConsoleColor.BLUE);
         String check = sc.next();
         while (!check.equalsIgnoreCase("Y") && !check.equalsIgnoreCase("n")) {
@@ -548,7 +562,7 @@ public class Main {
         }
 
         System.out.println("User Successfully Registered!");
-        person.personInfoPrint(person);
+        person.personInfoPrint();
         System.out.print(ConsoleColor.BLUE_BOLD + "Confirm the Information (Y/N)? : " + ConsoleColor.BLUE);
         String check = sc.next();
         while (!check.equalsIgnoreCase("Y") && !check.equalsIgnoreCase("n")) {
@@ -583,15 +597,18 @@ public class Main {
             managerMenu(manager);
         } else {
             welcomeMrOrMiss(manager);
-            System.out.println("Register Personnel         : Press 1");
-            System.out.println("Fire Personnel             : Press 2");
-            System.out.println("Add Room                   : Press 3");
-            System.out.println("Edit Room                  : Press 4");
-            System.out.println("Delete Room                : Press 5");
-            System.out.println("Change manager information : Press 6");
-            System.out.println("Ban User                   : Press 7");
-            System.out.println("Unban User                 : Press 8");
-            System.out.println("Back                       : Press 0");
+            System.out.println("Register Personnel                : Press 1");
+            System.out.println("Fire Personnel                    : Press 2");
+            System.out.println("Add Room                          : Press 3");
+            System.out.println("Edit Room                         : Press 4");
+            System.out.println("Delete Room                       : Press 5");
+            System.out.println("Change manager information        : Press 6");
+            System.out.println("Ban User                          : Press 7");
+            System.out.println("Unban User                        : Press 8");
+            System.out.println("List of guests                    : Press 9");
+            System.out.println("List of personnel                 : Press 10");
+            System.out.println("List of rooms                     : Press 11");
+            System.out.println("Back                              : Press 0");
         }
         return 1;
     }
