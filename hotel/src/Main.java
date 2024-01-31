@@ -778,6 +778,7 @@ public class Main {
                             }
                             if (checkAnswer.equalsIgnoreCase("y")) {
                                 System.out.println("Your room number is '" + i + "'");
+                                room[i].setGuestReservedThisRoomIndex(guestWhoReserved);
                                 room[i].setEmpty(false);
                                 return;
                             }
@@ -798,6 +799,7 @@ public class Main {
 
                               if (checkAnswer.equalsIgnoreCase("y")) {
                                 System.out.println("Your room number is '" + i + "'");
+                                room[i].setGuestReservedThisRoomIndex(guestWhoReserved);
                                 room[i].setEmpty(false);
                                 return;
                             }
