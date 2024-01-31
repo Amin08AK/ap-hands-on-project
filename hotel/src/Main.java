@@ -333,6 +333,10 @@ public class Main {
                                 System.out.println("invalid number!!");
                                 break outer;
                             case 9: //list of guests
+                                if (guestCounter == 0) {
+                                    System.out.println(ConsoleColor.RED + "There is no registered guest!" + ConsoleColor.YELLOW_BRIGHT);
+                                    break outer;
+                                }
                                 for (int i = 0; i < guestCounter; i++) {
                                     if(guest[i].getIsBaned()){
                                         System.out.println(ConsoleColor.RED+"This User is banned"+ConsoleColor.YELLOW_BRIGHT);
@@ -343,6 +347,10 @@ public class Main {
                                 }
                                 break outer;
                             case 10: //List of personnel
+                                if (personnelCounter == 0) {
+                                    System.out.println(ConsoleColor.RED + "There is no registered Personnel!" + ConsoleColor.YELLOW_BRIGHT);
+                                    break outer;
+                                }
                                 for (int i = 0; i < personnelCounter; i++) {
                                     if(personnel[i].getIsBaned()){
                                         System.out.println(ConsoleColor.RED+"This User is banned"+ConsoleColor.YELLOW_BRIGHT);
@@ -354,6 +362,10 @@ public class Main {
                                 }
                                 break outer;
                             case 11: //list of rooms
+                                if (roomCounter == 0) {
+                                    System.out.println(ConsoleColor.RED + "There is no room!" + ConsoleColor.YELLOW_BRIGHT);
+                                    break outer;
+                                }
                                 for (int i = 0; i < roomCounter; i++) {
                                     if(!room[i].isAvailable()){
                                         System.out.println(ConsoleColor.RED+"This Room is Deleted!"+ConsoleColor.YELLOW_BRIGHT);
