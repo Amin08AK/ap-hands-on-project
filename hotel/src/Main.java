@@ -747,7 +747,7 @@ public class Main {
                 case 1:
 
                     for (int i = 0; i < roomCounter; i++) {
-                        if (room[i].isEmpty() && room[i].getRoomType().equalsIgnoreCase("Single room")) {
+                        if (room[i].isEmpty() && room[i].getRoomType().equalsIgnoreCase("Single room") && room[i].isAvailable()) {
                             System.out.println("Price of this room: " + room[i].getPrice());
                             System.out.println("Would you like to reserve this room?(y/n): ");
                             String checkAnswer = sc.next();
@@ -768,7 +768,7 @@ public class Main {
                     break;
                 case 2:
                     for (int i = 0; i < roomCounter; i++) {
-                        if (room[i].isEmpty() && room[i].getRoomType().equalsIgnoreCase("Double room")) {
+                        if (room[i].isEmpty() && room[i].getRoomType().equalsIgnoreCase("Double room") && room[i].isAvailable()) {
                             System.out.println("Price of this room: " + room[i].getPrice());
                             System.out.println("Would you like to reserve this room?(y/n): ");
                             String checkAnswer = sc.next();
@@ -788,7 +788,7 @@ public class Main {
                     break;
                 case 3:
                     for (int i = 0; i < roomCounter; i++) {
-                        if (room[i].isEmpty() && room[i].getRoomType().equalsIgnoreCase("Suite")) {
+                        if (room[i].isEmpty() && room[i].getRoomType().equalsIgnoreCase("Suite") && room[i].isAvailable()) {
                             System.out.println("Price of this room: " + room[i].getPrice());
                             System.out.println("Would you like to reserve this room?(y/n): ");
                             String checkAnswer = sc.next();
